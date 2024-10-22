@@ -1,0 +1,81 @@
+/* styles.css */
+/* General styles (mobile-first approach) */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #03032c;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.advice-box {
+    background-color: #a6eef3;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+/* Dice button */
+.dice-btn {
+    background-color: #00aaff;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+.dice-btn:hover {
+    background-color: #ccc900;
+    transform: rotate(15deg);
+}
+
+/* Larger screen (Tablet and above) */
+@media (min-width: 768px) {
+    .advice-box {
+        font-size: 1.5rem;
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .advice-box {
+        margin-right: 40px;
+    }
+}
+/* Hover effects */
+.dice-btn:hover {
+    background-color: #640c55;
+    transform: rotate(15deg); /* Rotates the button slightly */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adds shadow */
+}
+.advice-box {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+    opacity: 0;
+}
+.attribution a{
+    color: white;
+}

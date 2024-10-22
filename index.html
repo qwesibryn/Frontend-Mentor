@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Advice generator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+
+  Advice #<!-- Advice ID goes here -->
+  <!-- index.html -->
+<div class="container">
+  <div id="advice" class="advice-box">Click the dice for advice!</div>
+  <button id="dice" class="dice-btn">🎲</button>
+</div>
+
+
+  "<!-- Advice text goes here -->"
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Alex Arthur</a>.
+  </div>
+
+    <!--Javascript code-->
+
+<script>
+  const diceButton = document.getElementById('dice');
+  const adviceBox = document.getElementById('advice');
+
+  // Add event listener for click event
+  diceButton.addEventListener('click', () => {
+      // Fetch advice from API
+      fetch('https://api.adviceslip.com/advice/1')
+          .then(response => response.json())
+          .then(data => {
+              adviceBox.textContent = `"${data.slip.advice}"`; // Display advice
+          })
+          .catch(error => {
+              adviceBox.textContent = "Oops! Couldn't fetch advice. Try again!";
+              console.error('Error fetching advice:', error);
+          });
+  });
+
+  diceButton.addEventListener('click', () => {
+    adviceBox.classList.add('hidden'); // Hide advice
+    fetch('https://api.adviceslip.com/advice')
+        .then(response => response.json())
+        .then(data => {
+            setTimeout(() => {
+                adviceBox.textContent = `"${data.slip.advice}"`;
+                adviceBox.classList.remove('hidden'); // Show new advice
+            }, 500); // Wait for the fade-out effect before showing new advice
+        })
+        .catch(error => {
+            adviceBox.textContent = "Oops! Couldn't fetch advice. Try again!";
+            adviceBox.classList.remove('hidden');
+            console.error('Error fetching advice:', error);
+        });
+});
+
+</script>
+</body>
+</html>
