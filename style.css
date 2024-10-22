@@ -65,7 +65,7 @@ body {
 }
 /* Hover effects */
 .dice-btn:hover {
-    background-color: #640c55;
+    background-color: #ffffff;
     transform: rotate(15deg); /* Rotates the button slightly */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adds shadow */
 }
@@ -78,4 +78,9 @@ body {
 }
 .attribution a{
     color: white;
+}
+.divider {
+    margin: 20px 0; /* Space around the divider */
+    display: flex;
+    justify-content: center; /* Centers the SVG horizontally */
 }
